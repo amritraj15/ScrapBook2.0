@@ -21,11 +21,11 @@ $message = $_POST['message'];
  $params = array(
       'api_user' => $user,
       'api_key' => $pass,
-      'to' => $email_address,
-      'subject' => 'testing from curl',
+      'to' => 'amritraj1510@gmail.com',
+      'subject' => 'Message from '.$name.' from the site',
       'html' => $message,
       'text' => $message,
-      'from' => 'amritraj1510@gmail.com',
+      'from' => $email_address,
    );
 
  $request = $url.'api/mail.send.json';

@@ -3,8 +3,8 @@
 /**
  * configure here
  */
-$from = 'AMRIT RAJ <amritraj@azurewebsites.net>';
-$sendTo = email;
+$from = 'IT WORKER <it@domain.com>';
+$sendTo = 'IT WORKER <it@domain.com>';
 $subject = 'New message from contact form';
 $fields = array('name' => 'Name', 'surname' => 'Surname', 'phone' => 'Phone', 'email' => 'Email', 'message' => 'Message');
 $htmlHeader = '';

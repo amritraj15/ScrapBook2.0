@@ -1046,22 +1046,22 @@ FOOTER
   transition: all 0.2s ease-out;
 }
 #footer p.social a.facebook {
-  background-color: #4460ae;
+  background-color: #3b5998;
 }
 #footer p.social a.gplus {
   background-color: #c21f25;
 }
 #footer p.social a.twitter {
-  background-color:deepskyblue;
+  background-color:#55acee;
 }
 #footer p.social a.github {
   background-color:black;
 }
 #footer p.social a.email {
-  background-color: #4a7f45;
+  background-color:#dd4b39;
 }
 #footer p.social a.linkedin {
-  background-color:dodgerblue;
+  background-color:#007bb5;
 }
 
 

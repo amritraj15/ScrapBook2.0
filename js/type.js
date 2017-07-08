@@ -9,15 +9,15 @@ var opts = {
   postfix: ''
 };
 malarkey(elem, opts).type('Amrit.').pause(700).delete(100)
-  .type(' a Data Analyst.').pause(700).delete(100)
   .type(' a ETL Developer.').pause(700).delete(100)
+  .type(' a Data Analyst.').pause(700).delete(100)
   .type(' Coder/Programmer.').pause(700).delete(100)
   .type(' Sports Fanatic.').pause(700).delete(100)
   .type(' a Foody.').pause(700).delete(100)
   .type(' Witty :)').pause(700).delete(100)
   .type(' a Traveler.').pause(700).delete(100)
-  .type(' Competitive').pause(700).delete(100)
+  .type(' Competitive.').pause(700).delete(100)
   
   .type(' Amrit Raj. ');
 
-malarkey(elem2, opts).pause(21000).type(' and a Data Analyst to help in making better decisions. ');
+malarkey(elem2, opts).pause(21000).type(' and I love building things with Code. ');

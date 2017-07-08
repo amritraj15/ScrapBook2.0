@@ -116,6 +116,25 @@ color: darksalmon;
   opacity: .8;
 }
 
+#plugin,#interest,#maps{
+  line-height: 2;
+    color: white;
+}
+
+#plugin, #interest > span ,#maps{
+  font-size: 1.3em;
+}
+#interest p {
+  color:white;
+  font-size: 1.2em;
+  line-height: 1.8;
+}
+
+#maps
+{
+  padding-left:15px;
+  padding-right:15px;
+}
 
 .scroll-top {
     z-index: 1049;
@@ -1798,6 +1817,18 @@ fieldset[disabled] .form-control {
     margin-left: auto;
     margin-right: auto;
   }
+    
+    
+      .container {
+    
+   /* height: 310px;*/
+   	padding-left:0px;
+	padding-right:0px;
+  }
+    
+    #maps{
+        padding-top: 20px;
+    }
 }
 /* type */
 h1,

@@ -27,7 +27,7 @@ function validateForm()
         var y = document.forms["contact_form"]["phone"].value; 
   	if(!y.match(phoneno) || !(y>=7000000000 && y<=9999999999))  
         {
-        	swal("Phone Number is not valid!")
+        	swal("Phone Number is not valid!. Contain only 10 digits")
         	return false; 
         }
     }

@@ -1,61 +1,73 @@
 <?php
+error_reporting(0);
+if (isset($_POST['name'])&&isset($_POST['email'])&&isset($_POST['message']))
+{
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$message = $_POST['message'];
+	if(isset($_POST['phone']))
+	{
+		$phone = $_POST['phone'];
+	}
+	else
+	{
+		$phone = "Not provided";
+	}
+	if(!empty($name)&&!empty($email)&&!empty($message))
+	{
+		require 'PHPMailer/PHPMailerAutoload.php';
+		$mail = new PHPMailer;
+		$mail->isSMTP();                                  
+		$mail->Host = 'smtp.gmail.com';
+		$mail->SMTPAuth = true;              
+		$mail->Username = '';
+		$mail->Password = '';
+		$mail->SMTPSecure = 'tls';                 
+		$mail->Port = 587;          
 
-require_once('./vendor/autoload.php');
-use Postmark\PostmarkClient;
+		$mail->setFrom($email, $name);
+		$mail->addAddress('amritraj1510@gmail.com', 'Amrit Raj');
+		$mail->isHTML(true); 
 
-// Example request
-$client = new PostmarkClient("664bb426-d53c-4abc-a480-d3c4864ec686");
+		$mail->Subject = "Contact feedback for amritraj.azurewebsites.in by $name ($email)";
+		$mail->Body    = "<b>Name: </b>$name<br><b>Email: </b><i>$email</i><br><b>Phone: </b>$phone<br><b>Message: </b><br>$message";
+		$mail->AltBody = "The feedback is sent by $name ($email). The phone number is - $phone. The message is $message";
 
-
-if(empty($_POST['name'])  		||
-   empty($_POST['email']) 		||
-   empty($_POST['message'])	||
-   !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
-   {
-	echo "No arguments Provided!";
-	return false;
-   }
-	
-$name = $_POST['name'];
-$email_address = $_POST['email'];
-$phone = $_POST['phone'];
-$message = $_POST['message'];
-
-// Make a request
-
-$sendResult = $client->sendEmailWithTemplate(
-  "amritraj@acm.org",
-  $email_address, 
-  603923,
-  [
-  "product_name" => "amritraj.azurewebsites.com",
-  "name" => $name,
-  "sender_name" => "Amrit Raj",
-  "product_address_line1" => "amritraj@acm.org",
-  "product_address_line2" => "amritraj1510@gmail.com",
-  "action_url" => "action_url_Value",
-  "username" => $name,
-]);
-
-// Make a request
-$sendResult = $client->sendEmailWithTemplate(
-  "amritraj@acm.org",
-  "amritraj1510@gmail.com", 
-  603702,
-  [
-  "product_name" => "amritraj.azurewebsites.com",
-  "name" => $name,
-  "email" => $email_address,
-  "phone" => $phone,
-  "message" => $message,
-  "action_url" => "action_url_Value",
-  "username" => "username_Value",
-  "sender_name" => $name,
-  "product_address_line1" => "amritraj@acm.org",
-  "product_address_line2" => "amritraj1510@gmail.com",
-]);
-
-return true;
+		if($mail->send())
+		{
+			echo "<script>
+                        setTimeout(function() {
+                                swal({
+                                        title: 'Thank you $name!',
+                                        text: 'I will reach out to you soon.',
+					type: 'success'
+                                }, function() {
+                        window.location = '../index.html';
+                        });
+                        }, 1000);
+                        </script>";
+		}
+		else
+		{
+			echo "<script>
+    			setTimeout(function() {
+        			swal({
+            				title: 'Sorry $name!',
+            				text: 'Network error. Please try again later.',
+            				imageUrl: '../img/error.jpg'
+        			}, function() {
+            		window.location = '../index.html';
+        		});
+    			}, 1000);
+			</script>";
+		}
+	}
+}
 ?>
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="../css/sweetalert.css" rel="stylesheet">
+	<script src="../js/sweetalert-dev.js"></script>
+</head>
+</html>

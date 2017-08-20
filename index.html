@@ -455,7 +455,7 @@ _________________________________________________________ -->
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <form name="sentMessage" method="POST" action="http://formspree.io/amritraj1510@gmail.com" id="contactForm" novalidate>
+                    <form onsubmit="return validateForm(this)" name="sentMessage" id="contact_form" action="mail/mail.php"  method="POST" >
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -466,7 +466,12 @@ _________________________________________________________ -->
                                 </div>
                                 <div class="form-group">
                                     <input type="hidden" name="_subject" value="New email from personal website!" />
-                                    <input type="email" class="form-control" placeholder="Your Email *" name="_replyto" id="email" required >
+                                    <input type="email" class="form-control" placeholder="Your Email *" name="email" id="email" required >
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" name="_subject" value="New email from personal website!" />
+                                    <input type="text" class="form-control" placeholder="Your Phone No *" name="phone" id="phone" required >
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>

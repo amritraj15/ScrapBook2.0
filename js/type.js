@@ -10,7 +10,7 @@ var opts = {
 };
 malarkey(elem, opts).type('Amrit.').pause(700).delete(100)
   .type(' a ETL Developer.').pause(700).delete(100)
-  .type(' a Data Analyst.').pause(700).delete(100)
+  .type(' a Data Warehousing Specialist.').pause(700).delete(100)
   .type(' a Coder/Programmer.').pause(700).delete(100)
   .type(' a Sports Fanatic.').pause(700).delete(100)
   .type(' a Foody.').pause(700).delete(100)
